@@ -1,0 +1,9 @@
+"""
+Stubs for :mod:`cycel.crypto.curves.ed25519` (Cython).
+
+See the compiled module for full docstrings on each function.
+"""
+
+def ed25519_public_key(seed: bytes) -> bytes: ...
+def ed25519_sign(message: bytes, seed: bytes) -> bytes: ...
+def ed25519_verify(message: bytes, signature: bytes, public_key: bytes) -> bool: ...

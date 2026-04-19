@@ -1,0 +1,9 @@
+from datetime import datetime, timedelta
+from typing import List
+
+def datetime_range(
+    start: datetime, end: datetime, step: timedelta
+) -> List[datetime]: ...
+def strftime_range(
+    start: datetime, end: datetime, step: timedelta, format: str = ...
+) -> List[str]: ...
