@@ -1,0 +1,46 @@
+[build-system]
+requires = [
+    "setuptools",
+    "wheel",
+    "Cython",
+    "picobuild"
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cycel"
+description = "CPython Development Kit"
+readme = "README.md"
+license = "BSD-3-Clause"
+license-files = ["LICENSE"]
+authors = [{ name = "ckirua", email = "aquipongoalgo.dsz@gmail.com" }]
+requires-python = ">=3.14"
+dynamic = ["version"]
+dependencies = [
+    "setuptools>=80.9.0",
+    "Cython",
+    "picobuild",
+    "picoid",
+    "pyarrow",
+    "numpy",
+]
+
+[project.optional-dependencies]
+http = ["aiosonic"]
+databases = ["clickhouse-driver"]
+platform = [
+    "uvloop; sys_platform != 'win32'",
+    "winloop; sys_platform == 'win32'",
+]
+dev = ["pytest>=8.0.0", "sphinx>=7.0.0", "sphinx-rtd-theme>=2.0.0"]
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.dynamic]
+version = { attr = "cycel.__about__.__version__" }
+
+[tool.pylint.'MESSAGES CONTROL']
+disable = [
+    "missing-function-docstring"
+]
